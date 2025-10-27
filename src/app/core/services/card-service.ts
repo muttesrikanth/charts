@@ -8,10 +8,10 @@ export class CardService {
   private employeeSignal = signal<CardInterface>({
     name: "Srikanth Mutte",
     company: "Grayradiant Dataservices Pvt Ltd",
-    role: "Frontend Developer",
+    role: "Ui Developer",
     package: 9,
-    email: "srikanthmutte.devgmail.com",
-    dob: "1999-06-15",
+    email: "srikanthmutte.dev@gmail.com",
+    dob: "1997-07-20",
     workMode: "Hybrid",
     address: {
       addressLine: "Nagarabhavi",
