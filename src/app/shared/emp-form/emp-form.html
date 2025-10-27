@@ -1,1 +1,172 @@
-<p>emp-form works!</p>
+<div class="background">
+    <button class="button-back" routerLink="/">Back</button>
+    <div class="employee-form-container">
+        <h2>Employee Registration Form</h2>
+
+        <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+            <!-- Name -->
+            <div class="form-group"
+                [class.invalid]="employeeForm.get('name')?.touched && employeeForm.get('name')?.invalid">
+                <label>Name</label>
+                <input formControlName="name" placeholder="Enter full name" />
+                <small *ngIf="employeeForm.get('name')?.touched && employeeForm.get('name')?.invalid">
+                    Name is required
+                </small>
+            </div>
+
+            <!-- Company -->
+            <div class="form-group" [class.invalid]="
+          employeeForm.get('company')?.touched && employeeForm.get('company')?.invalid
+        ">
+                <label>Company</label>
+                <input formControlName="company" placeholder="Enter company name" />
+                <small *ngIf="employeeForm.get('company')?.touched && employeeForm.get('company')?.invalid">
+                    Company name is required
+                </small>
+            </div>
+
+            <!-- Role -->
+            <div class="form-group"
+                [class.invalid]="employeeForm.get('role')?.touched && employeeForm.get('role')?.invalid">
+                <label>Role</label>
+                <input formControlName="role" placeholder="Enter role/designation" />
+                <small *ngIf="employeeForm.get('role')?.touched && employeeForm.get('role')?.invalid">
+                    Role is required
+                </small>
+            </div>
+
+            <!-- Package -->
+            <div class="form-group" [class.invalid]="
+          employeeForm.get('package')?.touched && employeeForm.get('package')?.invalid
+        ">
+                <label>Package (LPA)</label>
+                <input formControlName="package" type="number" placeholder="Enter package" />
+                <small *ngIf="employeeForm.get('package')?.touched && employeeForm.get('package')?.invalid">
+                    Package is required
+                </small>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group"
+                [class.invalid]="employeeForm.get('email')?.touched && employeeForm.get('email')?.invalid">
+                <label>Email</label>
+                <input formControlName="email" type="email" placeholder="Enter email" />
+                <small *ngIf="employeeForm.get('email')?.touched && employeeForm.get('email')?.invalid">
+                    Valid email is required
+                </small>
+            </div>
+
+            <!-- DOB -->
+            <div class="form-group"
+                [class.invalid]="employeeForm.get('dob')?.touched && employeeForm.get('dob')?.invalid">
+                <label>Date of Birth</label>
+                <input formControlName="dob" type="date" />
+                <small *ngIf="employeeForm.get('dob')?.touched && employeeForm.get('dob')?.invalid">
+                    Date of Birth is required
+                </small>
+            </div>
+
+            <!-- Address -->
+            <fieldset formGroupName="address" class="address-section">
+                <legend>Address Details</legend>
+
+                <div class="form-group" [class.invalid]="
+            employeeForm.get('address.addressLine')?.touched &&
+            employeeForm.get('address.addressLine')?.invalid
+          ">
+                    <label>Address Line</label>
+                    <input formControlName="addressLine" placeholder="Enter address" />
+                    <small *ngIf="
+              employeeForm.get('address.addressLine')?.touched &&
+              employeeForm.get('address.addressLine')?.invalid
+            ">
+                        Address is required
+                    </small>
+                </div>
+
+                <div class="form-group" [class.invalid]="
+            employeeForm.get('address.city')?.touched && employeeForm.get('address.city')?.invalid
+          ">
+                    <label>City</label>
+                    <input formControlName="city" placeholder="Enter city" />
+                    <small *ngIf="
+              employeeForm.get('address.city')?.touched && employeeForm.get('address.city')?.invalid
+            ">
+                        City is required
+                    </small>
+                </div>
+
+                <div class="form-group" [class.invalid]="
+            employeeForm.get('address.state')?.touched && employeeForm.get('address.state')?.invalid
+          ">
+                    <label>State</label>
+                    <input formControlName="state" placeholder="Enter state" />
+                    <small *ngIf="
+              employeeForm.get('address.state')?.touched &&
+              employeeForm.get('address.state')?.invalid
+            ">
+                        State is required
+                    </small>
+                </div>
+
+                <div class="form-group" [class.invalid]="
+            employeeForm.get('address.pincode')?.touched &&
+            employeeForm.get('address.pincode')?.invalid
+          ">
+                    <label>Pincode</label>
+                    <input formControlName="pincode" placeholder="Enter pincode" />
+                    <small *ngIf="
+              employeeForm.get('address.pincode')?.touched &&
+              employeeForm.get('address.pincode')?.invalid
+            ">
+                        Pincode is required
+                    </small>
+                </div>
+            </fieldset>
+
+            <!-- Work Mode -->
+            <div class="form-group" [class.invalid]="
+          employeeForm.get('workMode')?.touched && employeeForm.get('workMode')?.invalid
+        ">
+                <label>Work Mode</label>
+                <select formControlName="workMode">
+                    <option value="">Select</option>
+                    <option value="Onsite">Onsite</option>
+                    <option value="Remote">Remote</option>
+                    <option value="Hybrid">Hybrid</option>
+                </select>
+                <small *ngIf="employeeForm.get('workMode')?.touched && employeeForm.get('workMode')?.invalid">
+                    Work mode is required
+                </small>
+            </div>
+
+            <!-- Hike Section -->
+            <div class="hike-section" formArrayName="hikes">
+                <h3>Hike Details</h3>
+                <button type="button" class="add-btn" (click)="addcontroles()">+ Add Hike</button>
+
+                <div *ngFor="let hike of hikesList.controls; let i = index" [formGroupName]="i" class="hike-card">
+                    <div class="form-group-inline"
+                        [class.invalid]="hike.get('year')?.touched && hike.get('year')?.invalid">
+                        <label>Year</label>
+                        <input formControlName="year" type="number" placeholder="Year" />
+                        <small *ngIf="hike.get('year')?.touched && hike.get('year')?.invalid">Required</small>
+                    </div>
+
+                    <div class="form-group-inline"
+                        [class.invalid]="hike.get('percentage')?.touched && hike.get('percentage')?.invalid">
+                        <label>Percentage</label>
+                        <input formControlName="percentage" type="number" placeholder="%" />
+                        <small
+                            *ngIf="hike.get('percentage')?.touched && hike.get('percentage')?.invalid">Required</small>
+                    </div>
+
+                    <button type="button" class="remove-btn" (click)="remove(i)">Remove</button>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+</div>
