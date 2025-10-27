@@ -1,1 +1,23 @@
-<p>card works!</p>
+<div class="background">
+    <button class="button-back" routerLink="/">Back</button>
+    <div class="employee-card" *ngIf="employee()">
+        <div class="card-header">
+            <h2>{{ employee().name }}</h2>
+            <span class="role">{{ employee().role }}</span>
+        </div>
+        
+        <div class="card-body">
+            <p><strong>Company:</strong> {{ employee().company }}</p>
+            <p><strong>Package:</strong> {{ employee().package }} LPA</p>
+            <p><strong>Email:</strong> {{ employee().email }}</p>
+            <p><strong>DOB:</strong> {{ employee().dob | date }}</p>
+            <p><strong>Work Mode:</strong> {{ employee().workMode }}</p>
+            
+            <div class="address">
+                <h4>Address</h4>
+                <p>{{ employee().address.addressLine }}</p>
+                <p>{{ employee().address.city }}, {{ employee().address.state }} - {{ employee().address.pincode }}</p>
+            </div>
+        </div>
+    </div>
+</div>
