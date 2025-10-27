@@ -1,0 +1,29 @@
+.background{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+.bar{
+    width: 700px;
+    height: 700px;
+}
+.pie{
+    width: 350px;
+}
+button{
+    position: absolute;
+    bottom: 100px;
+    padding: 9px 20px;
+    color: #fff;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: blueviolet;
+    color: black;
+    transition: all .5s;
+}

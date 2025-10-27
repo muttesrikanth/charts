@@ -1,0 +1,50 @@
+.background {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('https://res.cloudinary.com/dx0fji5gh/image/upload/v1759472774/project-welcome-image_v1iwdm.jpg');
+  background-size: 100% 100%;
+  /* object-fit: cover; */
+  position: relative;
+}
+.route {
+  background-color: transparent;
+  width: 28%;
+  height: 48%;
+  position: absolute;
+  top: 41%;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.charts {
+  left: 5%;
+}
+.empform {
+  left: 36%;
+}
+.card {
+  right: 5%;
+}
+.route {
+  h2 {
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    font-size: 40px;
+    text-align: center;
+    padding-top: 15px;
+  }
+}
+.charts:hover {
+  h2 {
+    color: rgb(255, 0, 0);
+  }
+}
+.empform:hover {
+  h2 {
+    color: rgb(255, 0, 251);
+  }
+}
+.card:hover {
+  h2 {
+    color: rgb(0, 60, 255);
+  }
+}

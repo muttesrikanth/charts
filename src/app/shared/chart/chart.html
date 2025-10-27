@@ -1,1 +1,18 @@
-<p>chart works!</p>
+<div class="background">
+    <canvas baseChart class="bar"
+        [data]="barChartData"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [type]="'bar'">
+</canvas>
+<canvas baseChart class="pie"
+  [type]="'pie'"
+  [datasets]="pieChartDatasets"
+  [labels]="pieChartLabels"
+  [options]="pieChartOptions"
+  [plugins]="pieChartPlugins"
+  [legend]="pieChartLegend">
+</canvas>
+<button routerLink="/">Back</button>
+</div>
