@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { ChartConfiguration, ChartOptions } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { RouterLink } from "@angular/router";
 @Component({
   selector: 'app-chart',
-  imports: [BaseChartDirective],
+  imports: [BaseChartDirective, RouterLink],
   templateUrl: './chart.html',
   styleUrl: './chart.scss',
 })
